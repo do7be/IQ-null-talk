@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const route = require('./routes')
+const apiPost = require('./routes/post')
 
 const app = express()
 app.set('view engine', 'pug')
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/', route)
+app.use('/post', apiPost)
 
 // eslint-disable-next-line no-console
 app.listen(3000, () => console.log('App listening on port 3000!'))
