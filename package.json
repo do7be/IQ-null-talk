@@ -1,0 +1,7 @@
+{
+  "name": "kaiga-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "do7be <bomsap700@gmail.com>",
+  "license": "MIT"
+}
