@@ -1,4 +1,5 @@
 import React from 'react'
+import PropsTypes from 'prop-types'
 
 export default class TextInput extends React.Component {
   state = {
@@ -56,7 +57,8 @@ class Hoge extends React.Component {
     }
 
     this.setState({ busy: true }, () => {
-      this.props.onPost(input, true)
+      const { onPost } = this.props
+      onPost(input, true)
 
       const headers = {
         Accept: 'application/json',
@@ -69,7 +71,7 @@ class Hoge extends React.Component {
         .then(res => res.json())
         .then(res => {
           this.setState({ input: res.yourReply, busy: false })
-          this.props.onPost(res.reply, false)
+          onPost(res.reply, false)
         })
     })
   }
@@ -83,4 +85,7 @@ class Hoge extends React.Component {
       </form>
     )
   }
+}
+Hoge.propsTypes = {
+  onPost: PropsTypes.func.isRequired
 }
